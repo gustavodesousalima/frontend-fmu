@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Plus, Trash2, Pause, Play, TrendingDown, Sparkles, Tv, Music, ShoppingBag, Dumbbell, Cloud } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Subscription } from '@/types'
@@ -87,7 +87,6 @@ const getSubscriptionIcon = (name: string) => {
 
 export default function AssinaturasPage() {
     const [subscriptions, setSubscriptions] = useState<Subscription[]>(MOCK_SUBSCRIPTIONS)
-    const [showAddModal, setShowAddModal] = useState(false)
 
     const totalAtivas = subscriptions
         .filter(s => s.status === 'active')
@@ -107,6 +106,10 @@ export default function AssinaturasPage() {
 
     const handleDelete = (id: string) => {
         setSubscriptions(subs => subs.filter(s => s.id !== id))
+    }
+
+    function setShowAddModal(arg0: boolean): void {
+        throw new Error('Function not implemented.')
     }
 
     return (

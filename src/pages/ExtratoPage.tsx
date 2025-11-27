@@ -13,8 +13,7 @@ import {
     ArrowUpRight,
     ArrowDownRight,
     Sparkles,
-    Download,
-    Loader2
+    Download
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Transaction } from '@/types'
@@ -109,7 +108,6 @@ export default function ExtratoPage() {
     const [filteredTransactions, setFilteredTransactions] = useState<Transaction[]>(MOCK_TRANSACTIONS)
     const [beneficios, setBeneficios] = useState<Beneficio[]>(MOCK_BENEFICIOS)
     const [analiseIA, setAnaliseIA] = useState<string>('')
-    const [saldoBancario, setSaldoBancario] = useState<number>(0)
     const [searchTerm, setSearchTerm] = useState('')
     const [selectedCategory, setSelectedCategory] = useState('Todas')
     const [selectedType, setSelectedType] = useState<'all' | 'entrada' | 'saida'>('all')
@@ -145,7 +143,6 @@ export default function ExtratoPage() {
                 setFilteredTransactions(txConverted)
                 setBeneficios(data.beneficios_corporativos)
                 setAnaliseIA(data.analise_ia)
-                setSaldoBancario(data.saldo_bancario)
                 setError(null)
             } catch (err: any) {
                 console.error('Erro ao carregar extrato:', err)

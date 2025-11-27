@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Wallet, TrendingUp, TrendingDown, Activity, CreditCard, ArrowRight, ShoppingBag, Utensils, Car, Zap, MoreHorizontal, Sparkles } from 'lucide-react'
+import { Wallet, TrendingUp, Activity, CreditCard, ArrowRight, ShoppingBag, Utensils, Car, Zap, MoreHorizontal, Sparkles } from 'lucide-react'
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts'
 import { cn } from '@/lib/utils'
 import { DashboardData } from '@/types'
@@ -38,7 +38,6 @@ const getCategoryIcon = (category: string) => {
 
 export default function DashboardPage() {
     const [data, setData] = useState<DashboardData>(MOCK_DATA)
-    const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
@@ -48,7 +47,6 @@ export default function DashboardPage() {
                 const userStr = localStorage.getItem('user')
                 if (!userStr) {
                     setError('Usuário não autenticado')
-                    setLoading(false)
                     return
                 }
 
@@ -70,8 +68,6 @@ export default function DashboardPage() {
                 setError(err.message)
                 // Manter dados mockados em caso de erro
                 setData(MOCK_DATA)
-            } finally {
-                setLoading(false)
             }
         }
 
