@@ -108,10 +108,6 @@ export default function AssinaturasPage() {
         setSubscriptions(subs => subs.filter(s => s.id !== id))
     }
 
-    function setShowAddModal(arg0: boolean): void {
-        throw new Error('Function not implemented.')
-    }
-
     return (
         <div className="space-y-8 pb-10">
             {/* Header */}
@@ -125,7 +121,6 @@ export default function AssinaturasPage() {
                     </p>
                 </div>
                 <button
-                    onClick={() => setShowAddModal(true)}
                     className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/80 text-white rounded-lg transition-colors"
                 >
                     <Plus className="w-4 h-4" />
